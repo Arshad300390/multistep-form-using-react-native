@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { View, Text, Pressable, StyleSheet } from 'react-native'
-
+import { Button } from 'react-native-paper';
 import Extra from './Extra';
 import PersonalDetails from './PersonalDetails';
 import Signup from './Signup';
@@ -37,31 +37,43 @@ function Form() {
         }
     }
     return (
-        <View style={styles.outerBorder}> 
+        <View style={styles.outerBorder}>
             <View style={styles.wrapper}>
-                <Text style={{ fontSize: 32, color:'#003f5c' }}>{FormTitle[screen]}</Text>
+                <Text style={{ fontSize: 32, color: '#003f5c' }}>{FormTitle[screen]}</Text>
                 <View>
                     {ScreenDisplay()}
                 </View>
             </View>
             <View style={styles.buttonContainer}>
-                <Pressable disabled={screen === 0} onPress={() => {
+                {/* <Pressable disabled={screen === 0} onPress={() => {
                     setScreen((currScreen) => currScreen - 1)
                 }}>
-                    <Text style={styles.button}>Prev</Text>
-                </Pressable>
-                <Pressable onPress={() => {
-                    if (screen === FormTitle.length - 1) {
-                        console.log(formData);
-                    } else {
-                        setScreen((currScreen) => currScreen + 1)
-                    }
-                }}>
-                    <Text style={styles.button}>
-                        {screen === FormTitle.length - 1 ? 'Submit' : 'Next'}
-                    </Text>
-                </Pressable>
+                    <Text style={screen === 0 ? [styles.button, styles.buttonDull] : styles.button}>Prev</Text>
+                </Pressable> */}
+                <Button
+                    mode="contained" // You can customize the mode as per your requirements
+                    disabled={screen === 0}
+                    onPress={() => {
+                        setScreen((currScreen) => currScreen - 1);
+                    }}
+                >
+                    Prev
+                </Button>
+                <Button
+                    mode="contained" // You can customize the mode as per your requirements
+                    onPress={() => {
+                        if (screen === FormTitle.length - 1) {
+                            console.log(formData);
+                        } else {
+                            setScreen((currScreen) => currScreen + 1);
+                        }
+                    }}
+                >
+                    {screen === FormTitle.length - 1 ? 'Submit' : 'Next'}
+                </Button>
+
             </View>
+
 
 
         </View>
@@ -81,18 +93,20 @@ const styles = StyleSheet.create({
     },
     buttonContainer: {
         flexDirection: 'row',
-        display: 'flex',
-        alignItems: 'center',
+        justifyContent: 'space-between',
     },
     button: {
-        justifyContent: 'center',
+
         color: '#003f5c',
-        backgroundColor: '#ffc0cb',
+        // backgroundColor: '#ffc0cb',
         paddingVertical: 5,
         paddingHorizontal: 30,
-        marginLeft: 20,
+        margin: 20,
         textAlign: 'center',
 
+    },
+    buttonDull: {
+        color: '#7e8f96',
     }
 })
 export default Form

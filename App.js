@@ -1,14 +1,21 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { PaperProvider } from 'react-native-paper';
 import Form from './components/Form';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 export default function App() {
   return (
+    <PaperProvider>
+      <Header />
     <View style={styles.container}>
       <Text>Multi Step Form</Text>
       <Form />
       <StatusBar style="auto" />
-    </View>
+      </View>
+      <Footer />
+  </PaperProvider>
   );
 }
 
