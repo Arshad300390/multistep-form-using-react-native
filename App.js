@@ -5,7 +5,7 @@ import Form from './components/Form';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Multi Step Form</Text>
+      <Text>Multi Step Form Learning</Text>
       <Form />
       <StatusBar style="auto" />
     </View>
