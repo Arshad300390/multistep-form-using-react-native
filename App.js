@@ -1,21 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { PaperProvider } from 'react-native-paper';
-import Form from './components/Form';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import React from 'react';
+import { StyleSheet, Text, View , } from 'react-native';
+import { PaperProvider, } from 'react-native-paper';
+import BottomNavigationBar from './navigation/BottomNavigationBar';
+import CountryPickerForm from './CountryPickerForm';
+import DatePickerForm from './DatePickerForm';
 
 export default function App() {
+ 
   return (
+    
     <PaperProvider>
-      <Header />
-    <View style={styles.container}>
-      <Text>Multi Step Form</Text>
-      <Form />
-      <StatusBar style="auto" />
+      <View style={styles.container}>
+        <CountryPickerForm />
+        
+        <Text>Multi Step  erForm</Text>
+       <DatePickerForm />
       </View>
-      <Footer />
-  </PaperProvider>
+      
+      <BottomNavigationBar />
+      </PaperProvider>
   );
 }
 
