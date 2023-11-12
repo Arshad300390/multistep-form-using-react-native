@@ -6,6 +6,7 @@ import { PaperProvider } from 'react-native-paper';
 import BottomNavigationBar from './navigation/BottomNavigationBar';
 import CountryPickerForm from './CountryPickerForm';
 import DatePickerForm from './DatePickerForm';
+import TimeZoneList from './TimeZoneList';
 
 export default function App() {
   return (
@@ -14,8 +15,9 @@ export default function App() {
         <CountryPickerForm />
         <Text>Multi Step Form</Text>
         <DatePickerForm />
+       
       </View>
-      
+       <TimeZoneList />
         <BottomNavigationBar />
     </PaperProvider>
   );
